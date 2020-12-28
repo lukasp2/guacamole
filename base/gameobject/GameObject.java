@@ -1,9 +1,9 @@
 package base.gameobject;
 
-import base.Window;
+import java.awt.Graphics;
 
-public class GameObject {
-    public void tick() {}
+public abstract class GameObject {
+    public abstract void tick();
     
-    public void render(Window window) {}
+    public abstract void render(Graphics g);
 }

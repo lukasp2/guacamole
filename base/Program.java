@@ -1,6 +1,5 @@
 package base;
 
-import base.states.State;
 import base.states.menus.Start;
 
 import java.awt.Canvas;
@@ -16,14 +15,8 @@ public class Program extends Canvas implements Runnable {
     private Thread thread;
 
     public Program() {
-        window = new Window("Guacamole", WIDTH, HEIGHT);
-
-        State start = new Start();
-        sm = new StateMachine(start);
-
-        // these two needs to be done every State switch?
-        window.frame.add(start);
-        window.frame.setVisible(true);
+        window = new Window("Guacamole", WIDTH, HEIGHT, this);
+        sm = new StateMachine(new Start());
     }
 
     public synchronized void start() {
@@ -55,13 +48,13 @@ public class Program extends Canvas implements Runnable {
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
-                sm.stack.peek().getInput();
-                sm.stack.peek().tick();
+                sm.peek().getInput();
+                sm.peek().tick();
                 --delta;
             }
 
             if (sm.running) {
-                sm.stack.peek().render();
+                sm.peek().render();
             }
             ++frames;
 

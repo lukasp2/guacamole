@@ -1,28 +1,15 @@
 package base.states.menus;
 
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.Color;
-
+import base.gameobject.GameObject;
 import base.states.State;
 
 public class Menu extends State {
-    public void getInput() {
-    }
-
-    public void tick() {
-    }
-
-    public void render() {
-        BufferStrategy bs = this.getBufferStrategy();
-        if (bs == null) {
-            super.createBufferStrategy(3);
-            return;
+    public Menu(GameObject... objs) {
+        for (GameObject obj : objs) {
+            super.objects.add(obj);
         }
-        Graphics g = bs.getDrawGraphics();
-        g.setColor(Color.black);
-        g.fillRect(0, 0, 500, 500);
-        g.dispose();
-        bs.show();
+    }
+
+    public void getInput() {
     }
 }
