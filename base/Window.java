@@ -4,26 +4,26 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
+import base.states.State;
+
 public class Window extends Canvas {
-    private final int WIDTH = 640;
-    private final int HEIGHT = WIDTH / 12 * 9;
+    private static final long serialVersionUID = 2637057657081631720L;
 
-    private static final long serialVersionUID = 1L;
+    JFrame frame;
 
-    public Window(String title) {
-        JFrame frame = new JFrame(title);
-
-        frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        frame.setMaximumSize(new Dimension(WIDTH, HEIGHT));
-        frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
-
+    public Window(String title, int width, int height) {
+        frame = new JFrame();
+        frame.setTitle(title);
+        frame.setSize(new Dimension(width, height));
+        frame.setMaximumSize(new Dimension(width, height));
+        frame.setMinimumSize(new Dimension(width, height));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
+        frame.setFocusable(true);
 
-    public void render() {
         
+        //frame.add(p);
+        //frame.setVisible(true);
     }
 }

@@ -1,8 +1,9 @@
 package base.states;
 
 import base.StateMachine;
+import java.awt.Canvas;
 
-public class State {
+public class State extends Canvas {
     public StateMachine sm;
 
     public void getInput() {} // get and store input

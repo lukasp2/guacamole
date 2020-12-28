@@ -8,6 +8,7 @@ public class Start extends Menu {
     }
 
     public void render() {
+        super.render();
     }
 }    
 

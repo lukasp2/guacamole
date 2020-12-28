@@ -5,14 +5,12 @@ import base.states.State;
 import java.util.Stack;
 
 public class StateMachine {
-    Stack<State> stack = new Stack<State>();
-    Window window;
-    Boolean running = true;
-
+    public Stack<State> stack = new Stack<State>();
+    public Boolean running = false;
+    
     // initates the state machine with desired state
-    public StateMachine(State state, Window window) {
+    public StateMachine(State state) {
         this.push(state);
-        this.window = window;
     }
 
     // adds one or more states to the stack
@@ -29,14 +27,5 @@ public class StateMachine {
             stack.pop();
         }
         return stack.peek();
-    }
-
-    // runs the state machine
-    public void run() {
-        while (running) {
-            stack.peek().getInput();
-            stack.peek().tick();
-            stack.peek().render();
-        }
     }
 }
