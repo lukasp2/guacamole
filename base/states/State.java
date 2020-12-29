@@ -1,5 +1,6 @@
 package base.states;
 
+import base.KeyInput;
 import base.StateMachine;
 import base.gameobject.GameObject;
 
@@ -15,6 +16,10 @@ public class State extends Canvas {
     public LinkedList<GameObject> objects = new LinkedList<GameObject>();
 
     public StateMachine sm;
+
+    public State() {
+        this.addKeyListener(new KeyInput());
+    }
 
     public void addObjects(GameObject... objs) {
         for (GameObject obj : objs) {
@@ -38,7 +43,6 @@ public class State extends Canvas {
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
-            System.out.println("state: render");
             super.createBufferStrategy(3);
             return;
         }

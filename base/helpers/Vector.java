@@ -6,13 +6,14 @@ public class Vector {
 
     public Vector(Pair position, Pair velocity) {
         this.position = position;
+        this.velocity = velocity;
     }
 
     public void setPosition(Pair position) {
         this.position = position;
     }
 
-    public void setDirection(Pair velocity) {
+    public void setVelocity(Pair velocity) {
         this.velocity = velocity;
     }
 
@@ -20,7 +21,7 @@ public class Vector {
         return this.position;
     }
 
-    public Pair getDirection() {
+    public Pair getVelocity() {
         return this.velocity;
     }
 }

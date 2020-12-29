@@ -7,7 +7,7 @@ public class Start extends Menu {
 
     public Start() {
         super.addTitle("Main Menu");
-        super.addOptions("Start Game", "Game Settings", "High score", "Exit");
+        super.addOptions("start game", "game settings", "high score", "exit");
     }
 
     public void getInput() {
@@ -18,7 +18,6 @@ public class Start extends Menu {
     }
 
     public void render(Graphics g) {
-        System.out.println("start: render");
         super.render(g);
     }
 }    

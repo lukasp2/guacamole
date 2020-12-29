@@ -59,7 +59,7 @@ public class Program implements Runnable {
                 System.out.println("FPS: " + frames);
                 frames = 0;
             }
-            
+
             try {
                 Thread.sleep(10);
             } catch (Exception e) {

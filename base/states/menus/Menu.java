@@ -30,13 +30,12 @@ public class Menu extends State {
     }
 
     public void getInput() {
-        // change selected option
     }
 
     public void tick() {
+        super.tick();
     }
 
     public void render(Graphics g) {
-        System.out.println("menu: render");
     }
 }
