@@ -11,7 +11,8 @@ public class Program implements Runnable {
 
     public Program() {
         Window window = new Window("Guacamole", WIDTH, HEIGHT);
-        sm = new StateMachine(window, new Start());
+        sm = new StateMachine(window);
+        sm.push(new Start());
     }
 
     public synchronized void start() {
@@ -57,6 +58,12 @@ public class Program implements Runnable {
                 timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;
+            }
+            
+            try {
+                Thread.sleep(10);
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
         stop();

@@ -7,13 +7,27 @@ import base.gameobject.GameObject;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Dimension;
+import java.awt.Font;
 
 public class Text extends GameObject {
-    public Text(String s, int size, Color color, Vector vector, Dimension dimension) {
-        super(ID.Text, vector, dimension);
+    public String str;
+    public Color color;
+    public Font font;
+
+    public Text(String str, String font, int size, Color color, int fontstyle, Vector vector) {
+        super(ID.Text, vector, new Dimension(0, 0));
+        this.font = new Font(font, fontstyle, size);
+        this.str = str;
+        this.color = color;
     }
 
-    public void tick() {}
+    public void tick() {
+        
+    }
 
-    public void render(Graphics g) {}
+    public void render(Graphics g) {
+        g.setFont(font);
+        g.setColor(color);
+        g.drawString(str, vector.getPosition().getX(), vector.getPosition().getY());
+    }
 }

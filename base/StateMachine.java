@@ -10,9 +10,8 @@ public class StateMachine {
     public Boolean running = false;
 
     // initates the state machine with desired state
-    public StateMachine(Window window, State state) {
+    public StateMachine(Window window) {
         this.window = window;
-        this.push(state);
     }
 
     // gets current state

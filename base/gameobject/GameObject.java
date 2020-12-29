@@ -17,6 +17,14 @@ public abstract class GameObject {
         this.dimensions = dimensions;
     }
 
+    public Vector getVector() {
+        return vector;
+    }
+
+    public Dimension getDimensions() {
+        return dimensions;
+    }
+
     public abstract void tick();
     
     public abstract void render(Graphics g);
