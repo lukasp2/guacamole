@@ -6,22 +6,17 @@ import base.gameobject.GameObject;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Dimension;
 
 public class Object extends GameObject {
-    public Object(ID id, Vector vector) {
-        super(id, vector);
+    public Object(ID id, Vector vector, Dimension dimensions) {
+        super(id, vector, dimensions);
     }
 
     public void tick() {}
     
     public void render(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(20, 50, 80, 80);
-
-        g.setColor(Color.GREEN);
-        g.fillRect(200, 200, 120, 120);
-
-        g.setColor(Color.GREEN);
-        g.fillRect(320, 415, 20, 20);
+        g.fillRect(vector.getPosition().getX(), this.vector.getPosition().getY(), 80, 80);
     }
 }
