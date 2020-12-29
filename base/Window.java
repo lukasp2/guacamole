@@ -9,7 +9,7 @@ public class Window extends Canvas {
 
     JFrame frame;
 
-    public Window(String title, int width, int height, Program p) {
+    public Window(String title, int width, int height) {
         frame = new JFrame();
         frame.setTitle(title);
         frame.setSize(new Dimension(width, height));
@@ -19,7 +19,9 @@ public class Window extends Canvas {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setFocusable(true);
-        frame.add(p);
-        frame.setVisible(true);
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 }

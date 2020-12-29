@@ -6,10 +6,12 @@ import java.util.Stack;
 
 public class StateMachine {
     private Stack<State> stack = new Stack<State>();
+    public Window window;
     public Boolean running = false;
 
     // initates the state machine with desired state
-    public StateMachine(State state) {
+    public StateMachine(Window window, State state) {
+        this.window = window;
         this.push(state);
     }
 
@@ -21,6 +23,8 @@ public class StateMachine {
     // adds one or more states to the stack
     public void push(State... states) {
         for (State state : states) {
+            window.frame.add(state);
+            window.frame.setVisible(true);
             state.sm = this;
             stack.push(state);
         }

@@ -2,21 +2,16 @@ package base;
 
 import base.states.menus.Start;
 
-import java.awt.Canvas;
-
-public class Program extends Canvas implements Runnable {
-    private static final long serialVersionUID = 4985816448274544227L;
-
+public class Program implements Runnable {
     public final int WIDTH = 1240;
     public final int HEIGHT = WIDTH / 16 * 9;
 
-    public Window window;
     public StateMachine sm;
     private Thread thread;
 
     public Program() {
-        window = new Window("Guacamole", WIDTH, HEIGHT, this);
-        sm = new StateMachine(new Start());
+        Window window = new Window("Guacamole", WIDTH, HEIGHT);
+        sm = new StateMachine(window, new Start());
     }
 
     public synchronized void start() {

@@ -1,15 +1,22 @@
 package base.states.menus;
 
-import base.gameobject.GameObject;
 import base.states.State;
 
+import java.awt.Graphics;
+
 public class Menu extends State {
-    public Menu(GameObject... objs) {
-        for (GameObject obj : objs) {
-            super.objects.add(obj);
-        }
+    private static final long serialVersionUID = -7258389546270293186L;
+
+    public Menu() {
+        System.out.println("menu: constructor");
     }
 
     public void getInput() {
+    }
+
+    public void tick() {
+    }
+
+    public void render(Graphics g) {
     }
 }
