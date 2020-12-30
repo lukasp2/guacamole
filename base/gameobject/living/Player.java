@@ -7,8 +7,6 @@ import base.helpers.ID;
 import base.helpers.Pair;
 
 import java.awt.Graphics;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;

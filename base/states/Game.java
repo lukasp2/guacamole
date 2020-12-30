@@ -14,13 +14,17 @@ public class Game extends State {
 
     // in the settings menu, you can add players and control player settings.
     // save that, and call Game(players).
+
+    // 1. we need to invalidate the keyboard listner in Start. it is still running.
     public Game() {
+        System.out.println("HELLO");
         players.add(new Player(new PlayerControls(), new Pair(100, 200)));
-        this.addKeyListener(new KeyInput(this));
+        objects.addAll(players);
     }
 
     public void keyPressActions(int key) {
         super.keyPressActions(key);
+        System.out.print("we are in the game and pressing keys!");
 
         for (Player p : players) {
             p.actOnKeyPress(kic, key);

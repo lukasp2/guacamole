@@ -25,6 +25,8 @@ public class StateMachine {
             window.frame.add(state);
             window.frame.setVisible(true);
             state.sm = this;
+            state.addKeyListener(new KeyInput(state));
+            // remove kb listen from stack[-2]!!!!!!!
             stack.push(state);
         }
     }
@@ -32,8 +34,10 @@ public class StateMachine {
     // pops n states and returns new head
     public State pop(int numStates) { 
         for (int i = 0; i < numStates; ++i) {
+            // remove kb listen from stack[-1]????????????
             stack.pop();
         }
+        stack.peek().addKeyListener(new KeyInput(stack.peek()));
         return stack.peek();
     }
 }

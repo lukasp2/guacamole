@@ -23,9 +23,7 @@ public class Program implements Runnable {
 
     public synchronized void stop() {
         try {
-            System.out.println("asd 1");
             thread.join();
-            System.out.println("asd 2");
             sm.running = false;
         } catch (Exception e) {
             e.printStackTrace();

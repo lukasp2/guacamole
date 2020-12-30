@@ -23,10 +23,6 @@ public class Menu extends State {
     Color activeOption = Color.ORANGE;
     Color inactiveOption = Color.LIGHT_GRAY;
 
-    public Menu() {
-        this.addKeyListener(new KeyInput(this));
-    }
-
     public void addTitle(String str) {
         super.addObjects(new Text(str, "TimesRoman", 24, inactiveOption, Font.PLAIN, new Vector(new Pair(position.getX(), position.getY()), new Pair(0, 0))));
     }
