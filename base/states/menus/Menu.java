@@ -58,10 +58,6 @@ public class Menu extends State {
             menuOptions.get(currentOption).color = activeOption;
             kic.pressKey(key);
         }
-
-        if (key == KeyEvent.VK_ENTER && kic.keyIsReady(key)) {
-            
-        }
     }
 
     public void keyReleaseActions(int key) {
