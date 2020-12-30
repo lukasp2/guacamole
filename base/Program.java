@@ -23,7 +23,9 @@ public class Program implements Runnable {
 
     public synchronized void stop() {
         try {
+            System.out.println("asd 1");
             thread.join();
+            System.out.println("asd 2");
             sm.running = false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,7 +46,6 @@ public class Program implements Runnable {
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
-                sm.peek().getInput();
                 sm.peek().tick();
                 --delta;
             }

@@ -7,7 +7,4 @@ public class GameOver extends Menu {
         super.addTitle("Game Over");
         super.addOptions("Try Again", "Back to main menu");
     }
-
-    public void getInput() {
-    }
 }

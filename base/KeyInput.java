@@ -3,15 +3,23 @@ package base;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import base.states.State;
+
 public class KeyInput extends KeyAdapter {
+
+    State state;
+
+    public KeyInput(State state) {
+        this.state = state;
+    }
+
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        System.out.println("Pressed " + key);
-
-        //if (key == KeyEvent.VK_W) {}
+        state.keyPressActions(key);
     }
 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
+        state.keyReleaseActions(key);
     }
 }

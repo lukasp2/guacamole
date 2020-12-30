@@ -7,7 +7,4 @@ public class Pause extends Menu {
         super.addTitle("Game Paused");
         super.addOptions("Resume", "Quit to main menu");
     }
-
-    public void getInput() {
-    }
 }
