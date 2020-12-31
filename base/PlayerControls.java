@@ -14,4 +14,8 @@ public class PlayerControls {
     public Runnable getAction(int key) {
         return actions.get(key);
     }
+
+    public boolean has(int key) {
+        return actions.containsKey(key);
+    }
 }

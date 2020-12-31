@@ -49,7 +49,7 @@ public class Player extends Living {
     }
 
     public void actOnKeyPress(KeyInputCooldown kic, int key) {
-        if (kic.keyIsReady(key)) {
+        if (kic.keyIsReady(key) && controls.has(key)) {
             controls.getAction(key).run();
         }
     }

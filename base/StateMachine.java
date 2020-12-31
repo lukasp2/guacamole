@@ -42,7 +42,7 @@ public class StateMachine {
     private void inactivateHeadState() {
         if (stack.size() > 0) {
             window.frame.remove(stack.peek());
-            while (stack.peek().getKeyListeners().length > 0) { 
+            while (stack.peek().getKeyListeners().length > 0) {
                 stack.peek().removeKeyListener(stack.peek().getKeyListeners()[0]);
             }
         }
@@ -53,5 +53,8 @@ public class StateMachine {
         stack.peek().addKeyListener(new KeyListener(stack.peek()));
         window.frame.add(stack.peek());
         window.frame.setVisible(true);
+
+        // this might solve the window focus problem i currently have on ubuntu OS:
+        window.frame.requestFocus();
     }
 }
