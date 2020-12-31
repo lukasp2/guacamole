@@ -5,11 +5,11 @@ import java.awt.event.KeyEvent;
 
 import base.states.State;
 
-public class KeyInput extends KeyAdapter {
+public class KeyListener extends KeyAdapter {
 
     State state;
 
-    public KeyInput(State state) {
+    public KeyListener(State state) {
         this.state = state;
     }
 

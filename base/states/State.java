@@ -1,6 +1,6 @@
 package base.states;
 
-import base.KeyInput;
+import base.KeyListener;
 import base.KeyInputCooldown;
 import base.StateMachine;
 import base.gameobject.GameObject;
@@ -16,15 +16,14 @@ public class State extends Canvas {
     private static final long serialVersionUID = -8198482209728477582L;
 
     // synchronize!
-    public LinkedList<GameObject> objects = new LinkedList<GameObject>();
+    protected LinkedList<GameObject> objects = new LinkedList<GameObject>();
 
     public StateMachine sm;
-    public KeyInputCooldown kic;
+    protected KeyInputCooldown kic;
 
     public State() {
-        this.addKeyListener(new KeyInput(this));
+        this.addKeyListener(new KeyListener(this));
         kic = new KeyInputCooldown();
-        setKeyboardCooldowns();
     }
 
     // adds Game Objects to list
@@ -33,10 +32,6 @@ public class State extends Canvas {
             objects.add(obj);
         }
     }
-
-    // override this method to add cooldowns to keys
-    // default cooldown is 100 milliseconds
-    public void setKeyboardCooldowns() {}
 
     public void keyPressActions(int key) {
         if (key == KeyEvent.VK_ESCAPE && kic.keyIsReady(key)) {

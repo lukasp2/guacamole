@@ -14,7 +14,6 @@ public class Start extends Menu {
 
     public void keyPressActions(int key) {
         super.keyPressActions(key);
-
         if (key == KeyEvent.VK_ENTER && kic.keyIsReady(key)) {
             if (currentOption == 0) {
                 System.out.println("Start game!");

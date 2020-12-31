@@ -1,10 +1,8 @@
 package base.states;
 
-import base.KeyInput;
 import base.PlayerControls;
 import base.gameobject.living.Player;
 import base.helpers.Pair;
-
 import java.util.LinkedList;
 
 public class Game extends State {
@@ -15,7 +13,6 @@ public class Game extends State {
     // in the settings menu, you can add players and control player settings.
     // save that, and call Game(players).
 
-    // 1. we need to invalidate the keyboard listner in Start. it is still running.
     public Game() {
         System.out.println("HELLO");
         players.add(new Player(new PlayerControls(), new Pair(100, 200)));
@@ -24,7 +21,7 @@ public class Game extends State {
 
     public void keyPressActions(int key) {
         super.keyPressActions(key);
-        System.out.print("we are in the game and pressing keys!");
+        System.out.println("we are in the game and pressing keys!");
 
         for (Player p : players) {
             p.actOnKeyPress(kic, key);
@@ -35,3 +32,5 @@ public class Game extends State {
         super.tick();
     }
 }
+
+// objects.add(new Object(ID.Object, new Vector(new Pair(100, 200), new Pair(0, 0)), new Dimension(80, 80)));

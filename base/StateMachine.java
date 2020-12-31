@@ -9,7 +9,6 @@ public class StateMachine {
     public Window window;
     public Boolean running = false;
 
-    // initates the state machine with desired state
     public StateMachine(Window window) {
         this.window = window;
     }
@@ -21,23 +20,44 @@ public class StateMachine {
 
     // adds one or more states to the stack
     public void push(State... states) {
+        inactivateHeadState();
+
+        // add the new states to the stack
         for (State state : states) {
-            window.frame.add(state);
-            window.frame.setVisible(true);
             state.sm = this;
-            state.addKeyListener(new KeyInput(state));
-            // remove kb listen from stack[-2]!!!!!!!
             stack.push(state);
         }
+
+        activateHeadState();
     }
 
     // pops n states and returns new head
     public State pop(int numStates) { 
+        inactivateHeadState();
+
         for (int i = 0; i < numStates; ++i) {
-            // remove kb listen from stack[-1]????????????
             stack.pop();
         }
-        stack.peek().addKeyListener(new KeyInput(stack.peek()));
+
+        activateHeadState();
+
         return stack.peek();
+    }
+
+    // removes frame and keylistners from the currently active State (the head) on the stack.
+    private void inactivateHeadState() {
+        if (stack.size() > 0) {
+            window.frame.remove(stack.peek());
+            while (stack.lastElement().getKeyListeners().length > 0) { 
+                stack.lastElement().removeKeyListener(stack.lastElement().getKeyListeners()[0]);
+            }
+        }    
+    }
+
+    // sets frame and keylistners on the currently active State (the head) on the stack.
+    private void activateHeadState() {
+        stack.peek().addKeyListener(new KeyListener(stack.peek()));
+        window.frame.add(stack.peek());
+        window.frame.setVisible(true);
     }
 }

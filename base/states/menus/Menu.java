@@ -1,6 +1,5 @@
 package base.states.menus;
 
-import base.KeyInput;
 import base.gameobject.text.Text;
 import base.helpers.Vector;
 import base.helpers.Pair;
