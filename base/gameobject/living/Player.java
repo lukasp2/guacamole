@@ -26,21 +26,21 @@ public class Player extends Living {
     }
 
     public void moveUp() {
-        this.vector.getVelocity().setY(this.vector.getVelocity().getY() - 1);
+        this.vector.getVelocity().setY(-1);
     }
 
     public void moveDown() {
-        this.vector.getVelocity().setY(this.vector.getVelocity().getY() + 1);
+        this.vector.getVelocity().setY(1);
     }
 
 
     public void moveLeft() {
-        this.vector.getVelocity().setX(this.vector.getVelocity().getX() - 1);
+        this.vector.getVelocity().setX(-1);
     }
 
 
     public void moveRight() {
-        this.vector.getVelocity().setX(this.vector.getVelocity().getX() + 1);
+        this.vector.getVelocity().setX(1);
     }
 
 

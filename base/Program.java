@@ -1,5 +1,6 @@
 package base;
 
+import base.states.Game;
 import base.states.menus.Start;
 
 public class Program implements Runnable {
@@ -12,7 +13,7 @@ public class Program implements Runnable {
     public Program() {
         Window window = new Window("Guacamole", WIDTH, HEIGHT);
         sm = new StateMachine(window);
-        sm.push(new Start());
+        sm.push(new Game());
     }
 
     public synchronized void start() {
@@ -60,7 +61,7 @@ public class Program implements Runnable {
             }
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(20);
             } catch (Exception e) {
                 System.out.println(e);
             }

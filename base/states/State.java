@@ -1,6 +1,5 @@
 package base.states;
 
-import base.KeyListener;
 import base.KeyInputCooldown;
 import base.StateMachine;
 import base.gameobject.GameObject;
@@ -19,12 +18,9 @@ public class State extends Canvas {
     protected LinkedList<GameObject> objects = new LinkedList<GameObject>();
 
     public StateMachine sm;
-    protected KeyInputCooldown kic;
+    protected KeyInputCooldown kic = new KeyInputCooldown();
 
-    public State() {
-        this.addKeyListener(new KeyListener(this));
-        kic = new KeyInputCooldown();
-    }
+    public State() {}
 
     // adds Game Objects to list
     public void addObjects(GameObject... objs) {

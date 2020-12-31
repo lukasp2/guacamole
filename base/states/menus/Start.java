@@ -17,7 +17,7 @@ public class Start extends Menu {
         if (key == KeyEvent.VK_ENTER && kic.keyIsReady(key)) {
             if (currentOption == 0) {
                 System.out.println("Start game!");
-                this.sm.push(new Game());
+                sm.push(new Game());
             }
             if (currentOption == 1) {
                 System.out.println("Game settings!");

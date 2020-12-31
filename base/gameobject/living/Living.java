@@ -16,7 +16,7 @@ public class Living extends GameObject {
     }
 
     public void tick() {
-
+        super.tick();
     }
     
     public void render(Graphics g) {
