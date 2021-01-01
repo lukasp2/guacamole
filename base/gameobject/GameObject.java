@@ -9,12 +9,12 @@ import java.awt.Graphics;
 public abstract class GameObject {
     protected Vector vector;
     protected Dimension dimensions;
-    protected int speed = 3;
+    protected int speed = 5;
     protected ID id;
 
     public GameObject(ID id, Vector vector, Dimension dimensions) {
         this.id = id;
-        this.vector = vector; // defines position and direction
+        this.vector = vector; // defines position and direction of object
         this.dimensions = dimensions;
     }
 

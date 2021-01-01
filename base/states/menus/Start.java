@@ -16,11 +16,10 @@ public class Start extends Menu {
         super.keyPressActions(key);
         if (key == KeyEvent.VK_ENTER && kic.keyIsReady(key)) {
             if (currentOption == 0) {
-                System.out.println("Start game!");
                 sm.push(new Game());
             }
             if (currentOption == 1) {
-                System.out.println("Game settings!");
+                sm.push(new Settings());
             }
             if (currentOption == 2) {
                 System.out.println("High score!");

@@ -33,7 +33,7 @@ public class Program implements Runnable {
     // main program loop
     public void run() {
 
-        int waitTime = 1000 / 60; //65 being the desired FPS
+        int waitTime = 1000 / 60; // denominator being the desired FPS
         int sleepSkipped = 0;
         int maxSleepSkipped = 10;
         Long beforeTime = System.nanoTime();

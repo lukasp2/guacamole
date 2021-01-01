@@ -5,6 +5,7 @@ import base.gameobject.living.Player;
 import base.helpers.Pair;
 import base.states.menus.Pause;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.awt.event.KeyEvent;
 
@@ -13,10 +14,15 @@ public class Game extends State {
 
     LinkedList<Player> players = new LinkedList<Player>();
 
-    // in the settings menu, you can add players and control player settings.
-    // save that, and call Game(players).
+    // TODO:
+    // variable: GameSettings gameSettings.
+    //              contains map level, num players
+    // at start, call: Game(gameSettings)
 
     public Game() {
+
+        // fetch settings from the gameSettings 
+
         players.add(new Player(new PlayerControls(), new Pair(100, 200)));
         objects.addAll(players);
     }
