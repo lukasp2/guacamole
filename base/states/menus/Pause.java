@@ -17,6 +17,9 @@ public class Pause extends Menu {
             if (currentOption == 0) {
                 sm.pop(1);
             }
+            if (currentOption == 1) {
+                sm.pop(2);
+            }
         }
     }
 }

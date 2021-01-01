@@ -18,31 +18,28 @@ public class Player extends Living {
         super(ID.Player, 100, new Vector(new Pair(100, 100), new Pair(0, 0)), new Dimension(50, 50));
 
         this.controls = controls;
-        controls.addAction(KeyEvent.VK_W, () -> moveUp());
-        controls.addAction(KeyEvent.VK_S, () -> moveDown());
-        controls.addAction(KeyEvent.VK_A, () -> moveLeft());
-        controls.addAction(KeyEvent.VK_D, () -> moveRight());
+        controls.addAction(KeyEvent.VK_W, () -> movementUp());
+        controls.addAction(KeyEvent.VK_S, () -> movementDown());
+        controls.addAction(KeyEvent.VK_A, () -> movementLeft());
+        controls.addAction(KeyEvent.VK_D, () -> movementRight());
         controls.addAction(KeyEvent.VK_G, () -> action());
     }
 
-    public void moveUp() {
-        this.vector.getVelocity().setY(-1);
+    public void movementUp() {
+        vector.getVelocity().setY(-1 * speed * controls.keyIsPressed());
     }
 
-    public void moveDown() {
-        this.vector.getVelocity().setY(1);
+    public void movementDown() {
+        vector.getVelocity().setY(1 * speed * controls.keyIsPressed());
     }
 
-
-    public void moveLeft() {
-        this.vector.getVelocity().setX(-1);
+    public void movementLeft() {
+        vector.getVelocity().setX(-1 * speed * controls.keyIsPressed());
     }
 
-
-    public void moveRight() {
-        this.vector.getVelocity().setX(1);
+    public void movementRight() {
+        vector.getVelocity().setX(1 * speed * controls.keyIsPressed());
     }
-
 
     public void action() {
 
@@ -50,7 +47,13 @@ public class Player extends Living {
 
     public void actOnKeyPress(KeyInputCooldown kic, int key) {
         if (kic.keyIsReady(key) && controls.has(key)) {
-            controls.getAction(key).run();
+            controls.runPressAction(key);
+        }
+    }
+
+    public void actOnKeyRelease(KeyInputCooldown kic, int key) {
+        if (controls.has(key)) {
+            controls.runReleaseAction(key);
         }
     }
 

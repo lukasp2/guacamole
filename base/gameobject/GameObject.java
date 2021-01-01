@@ -2,7 +2,6 @@ package base.gameobject;
 
 import base.helpers.Vector;
 import base.helpers.ID;
-import base.helpers.Pair;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -10,11 +9,12 @@ import java.awt.Graphics;
 public abstract class GameObject {
     protected Vector vector;
     protected Dimension dimensions;
+    protected int speed = 3;
     protected ID id;
 
     public GameObject(ID id, Vector vector, Dimension dimensions) {
         this.id = id;
-        this.vector = vector;
+        this.vector = vector; // defines position and direction
         this.dimensions = dimensions;
     }
 
@@ -27,10 +27,8 @@ public abstract class GameObject {
     }
 
     public void tick() {
-        vector.setPosition(
-            new Pair(vector.getPosition().getX() + vector.getVelocity().getX(),
-            vector.getPosition().getY() + vector.getVelocity().getY())
-        );
+        vector.getPosition().setX(vector.getPosition().getX() + vector.getVelocity().getX());
+        vector.getPosition().setY(vector.getPosition().getY() + vector.getVelocity().getY());
     }
     
     public abstract void render(Graphics g);

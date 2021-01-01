@@ -35,6 +35,10 @@ public class Game extends State {
 
     public void keyReleaseActions(int key) {
         super.keyReleaseActions(key);
+
+        for (Player p : players) {
+            p.actOnKeyRelease(kic, key);
+        }
     }
 
     public void tick() {
