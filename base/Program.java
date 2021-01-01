@@ -3,8 +3,9 @@ package base;
 import base.states.menus.Start;
 
 public class Program implements Runnable {
+    public final int TOPBARHEIGHT = 38;
     public final int WIDTH = 1240;
-    public final int HEIGHT = WIDTH / 16 * 9;
+    public final int HEIGHT = WIDTH / 16 * 9 + TOPBARHEIGHT;
 
     public StateMachine sm;
     private Thread thread;
@@ -32,14 +33,14 @@ public class Program implements Runnable {
 
     // main program loop
     public void run() {
-
         int waitTime = 1000 / 60; // denominator being the desired FPS
         int sleepSkipped = 0;
         int maxSleepSkipped = 10;
         Long beforeTime = System.nanoTime();
         int fps = 0;
         int fpsTime = 0;
-        while(sm.running){
+
+        while(sm.running) {
             sm.peek().tick();
             sm.peek().render();
             
@@ -50,8 +51,7 @@ public class Program implements Runnable {
             if(sleepTime > 0){
                 try {
                     Thread.sleep(sleepTime);
-                } catch(InterruptedException ie) {
-                }
+                } catch (InterruptedException ie) {}
             }
             else{ 
                 sleepSkipped++;
@@ -71,7 +71,6 @@ public class Program implements Runnable {
 
             beforeTime = System.nanoTime();
         }
-
         stop();
     }
 }

@@ -64,6 +64,6 @@ public class Player extends Living {
     public void render(Graphics g) {
         super.render(g);
         g.setColor(Color.PINK);
-        g.fillRect(vector.getPosition().getX(), vector.getPosition().getY(), (int)dimensions.getWidth(), (int)dimensions.getHeight());
+        g.fillRect(vector.getPosition().getX(), vector.getPosition().getY(), (int)objectSize.getWidth(), (int)objectSize.getHeight());
     }
 }
