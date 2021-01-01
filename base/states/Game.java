@@ -5,7 +5,6 @@ import base.gameobject.living.Player;
 import base.helpers.Pair;
 import base.states.menus.Pause;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.awt.event.KeyEvent;
 
@@ -15,9 +14,10 @@ public class Game extends State {
     LinkedList<Player> players = new LinkedList<Player>();
 
     // TODO:
-    // variable: GameSettings gameSettings.
-    //              contains map level, num players
-    // at start, call: Game(gameSettings)
+    // variable: Settings, which contains:
+    //              settings: mapLevel, numPlayers, PlayerControls(), all sound settings: 
+    //              sound effect volume, ambient sound volume, music volume, isMuted.
+    // at start, call: Game(settings)
 
     public Game() {
         // fetch settings from the gameSettings 
