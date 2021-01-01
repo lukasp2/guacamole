@@ -32,39 +32,46 @@ public class Program implements Runnable {
 
     // main program loop
     public void run() {
-        long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
-        double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
 
-        while (sm.running) {
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
-            while (delta >= 1) {
-                sm.peek().tick();
-                --delta;
+        int waitTime = 1000 / 60; //65 being the desired FPS
+        int sleepSkipped = 0;
+        int maxSleepSkipped = 10;
+        Long beforeTime = System.nanoTime();
+        int fps = 0;
+        int fpsTime = 0;
+        while(sm.running){
+            sm.peek().tick();
+            sm.peek().render();
+            
+            Long afterTime = System.nanoTime();
+            Long timeDiff = afterTime - beforeTime;
+            Long sleepTime = waitTime - (timeDiff / 1000000L);
+
+            if(sleepTime > 0){
+                try {
+                    Thread.sleep(sleepTime);
+                } catch(InterruptedException ie) {
+                }
+            }
+            else{ 
+                sleepSkipped++;
+                if(sleepSkipped == maxSleepSkipped){
+                    Thread.yield();
+                    sleepSkipped = 0;
+                }
             }
 
-            if (sm.running) {
-                sm.peek().render();
-            }
-            ++frames;
-
-            if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                System.out.println("FPS: " + frames);
-                frames = 0;
+            fpsTime += (System.nanoTime() - beforeTime) / 1000000;
+            fps++;
+            if(fpsTime > 1000){
+                System.out.println("FPS: " + fps);
+                fps = 0;
+                fpsTime = 0;
             }
 
-            try {
-                Thread.sleep(20);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            beforeTime = System.nanoTime();
         }
+
         stop();
     }
 }
