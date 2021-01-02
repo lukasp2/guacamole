@@ -13,8 +13,6 @@ public class Object extends GameObject {
         super(id, vector, dimensions);
     }
 
-    public void tick() {}
-    
     public void render(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillRect(vector.getPosition().getX(), this.vector.getPosition().getY(), 80, 80);

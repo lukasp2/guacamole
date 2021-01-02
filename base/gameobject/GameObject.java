@@ -1,6 +1,7 @@
 package base.gameobject;
 
 import base.helpers.Vector;
+import base.Window;
 import base.helpers.ID;
 import base.helpers.Pair;
 
@@ -8,10 +9,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 public abstract class GameObject {
-    public final int TOPBARHEIGHT = 38;
-    public final int WIDTH = 1240;
-    public final int HEIGHT = WIDTH / 16 * 9 + TOPBARHEIGHT;
-
     protected Vector vector;
     protected Dimension objectSize;
     protected int speed = 8;
@@ -34,13 +31,14 @@ public abstract class GameObject {
         return objectSize;
     }
 
-    public void tick() {
+    public void tick(Window window) {
         Pair pos = vector.getPosition();
         Pair vel = vector.getVelocity();
 
         if (confineToFrame) {
-            int lowerFrameBound = HEIGHT - objectSize.height - TOPBARHEIGHT;
-            int rightFrameBound = WIDTH - objectSize.width;
+            int titlebarHeight = 38;
+            int lowerFrameBound = window.getFrame().getHeight() - objectSize.height - titlebarHeight;
+            int rightFrameBound = window.getFrame().getWidth() - objectSize.width;
 
             if (pos.getX() < 0) {
                 pos.setX(0);

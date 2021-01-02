@@ -15,11 +15,6 @@ public class Living extends GameObject {
         this.health = health;
     }
 
-    public void tick() {
-        super.tick();
-    }
-    
     public void render(Graphics g) {
-        
     }
 }

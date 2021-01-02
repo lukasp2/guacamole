@@ -21,10 +21,6 @@ public class Text extends GameObject {
         this.color = color;
     }
 
-    public void tick() {
-        super.tick();
-    }
-
     public void render(Graphics g) {
         g.setFont(font);
         g.setColor(color);

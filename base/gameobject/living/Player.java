@@ -57,10 +57,6 @@ public class Player extends Living {
         }
     }
 
-    public void tick() {
-        super.tick();
-    }
-
     public void render(Graphics g) {
         super.render(g);
         g.setColor(Color.PINK);

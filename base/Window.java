@@ -19,10 +19,6 @@ public class Window extends Canvas {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setFocusable(true);
-
-        // ?
-        frame.requestFocus();
-        frame.setAlwaysOnTop(true);
     }
 
     public JFrame getFrame() {

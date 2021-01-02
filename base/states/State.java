@@ -43,7 +43,7 @@ public class State extends Canvas {
     // process and update information
     public void tick() {
         for (int i = 0; i < objects.size(); ++i) {
-            objects.get(i).tick();
+            objects.get(i).tick(sm.window);
         }
     }
     
