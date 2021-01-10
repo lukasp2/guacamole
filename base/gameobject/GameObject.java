@@ -13,6 +13,7 @@ public abstract class GameObject {
     protected Dimension objectSize;
     protected int speed = 8;
     protected ID id;
+    public double gravity = 0;
 
     // cannot move outside of frame
     protected boolean confineToFrame = true;
@@ -63,7 +64,7 @@ public abstract class GameObject {
         }
 
         pos.setX(pos.getX() + vel.getX());
-        pos.setY(pos.getY() + vel.getY());
+        pos.setY((int)(pos.getY() + vel.getY() + gravity));
     }
     
     public abstract void render(Graphics g);

@@ -16,8 +16,9 @@ public class Player extends Living {
 
     public Player(PlayerControls controls, Pair position) {
         super(ID.Player, 100, new Vector(new Pair(100, 100), new Pair(0, 0)), new Dimension(50, 50));
-
+        super.gravity = 2;
         this.controls = controls;
+        
         controls.addAction(KeyEvent.VK_W, () -> movementUp());
         controls.addAction(KeyEvent.VK_S, () -> movementDown());
         controls.addAction(KeyEvent.VK_A, () -> movementLeft());

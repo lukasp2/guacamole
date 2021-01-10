@@ -20,8 +20,9 @@ public class Game extends State {
     // at start, call: Game(settings)
 
     public Game() {
-        // fetch settings from the gameSettings 
-        players.add(new Player(new PlayerControls(), new Pair(100, 200)));
+        // fetch settings from the gameSettings
+        Player p = new Player(new PlayerControls(), new Pair(100, 200));
+        players.add(p);
         objects.addAll(players);
     }
 
